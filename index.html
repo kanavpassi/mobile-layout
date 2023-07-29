@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazing website</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+        body{
+            background-image: url('images/mesh-948.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .nav{
+            position: fixed;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-inline: 50px;
+            padding-block: 10px;
+        }
+        .logo{
+            font-size: max(2.2vw,2.2rem);
+            margin-right: 10px;
+            font-weight: 510;
+            align-self: start;
+        }
+        .navbar-links{
+            display: flex;
+            gap: 1.5rem;
+        }
+        .navbar-links li{
+            list-style: none;
+        }
+        .navbar-links li a{
+            font-size: max(1vw,16px);
+            text-decoration: none;
+            color: black;
+        }
+        .burger{
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            display: none;
+            
+        }
+        .line{
+            margin: 5px;
+            width: 30px;
+            height: 5px;
+            background-color: black;
+        }
+        .loading{
+            height: 100vh;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            overflow-x: hidden;
+            display: grid;
+            grid-template-columns:repeat(10,1fr);
+            column-gap: 0;
+            display: none;
+
+        }
+        .box{
+            background-color: rgb(0, 0, 0);
+        }
+        .hero{
+            padding-inline: 20px;
+            /* padding-top: 50px; */
+        }
+        .hero-container{
+            height: 100vh;
+            grid-gap:1rem;
+            display: grid;
+            grid-template-columns:min-content 1fr;
+            grid-template-rows: repeat(3,1fr);
+            grid-template-areas:'title first'
+                                'title second'
+                                'title third'
+                                 ;
+        }
+        .border1{
+            border: 2px solid purple
+        }
+        .hero-title{
+            /* transform: rotate(270deg); */
+            display: flex;
+            align-items: center;
+            /* justify-content: center; */
+            grid-area: title;
+        }
+        .hero-image{
+            grid-area: first;
+        }
+        .hero-content{
+            grid-area: second;
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+            align-items: start;
+        }
+        .hero-features{
+            grid-area: third;
+        }
+        .hero-content h1{
+            /* font-size: 3rem; */
+            text-transform: uppercase;
+    
+        }
+        img{
+            max-width: 100%;
+            max-height: 100%;
+        }
+        .hero-title-p{
+            transform: rotate(180deg);
+            font-size: 3rem;
+            writing-mode:vertical-rl;
+            /* height:100%; */
+            /* width: 100%; */
+            /* border: 2px solid forestgreen; */
+            /* text-align: center; */
+            text-transform: uppercase;
+        }
+        button{
+            background-color: transparent;
+            padding-inline: 20px;
+            padding-block: 10px;
+            outline: none;
+            border: 2px solid black;
+            cursor: pointer;
+            font-weight: 550;
+            font-size: 1rem;
+            border-radius: 5px;
+        }
+        @media(width <= 650px){
+            .burger{
+                display: block;
+            }
+            .line{
+                transition: transform 500ms,opacity 200ms;
+            }
+            .logo{
+                margin-top: 5px;
+            }
+            .nav{
+                padding-inline: 20px;
+                padding-right:0px;
+                padding-top: 0px;
+            }
+            .navbar-links{
+                height: 100vh;
+                width: 70%;
+                background-color: rgba(0, 0, 0, 0.7);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                padding-inline: 3rem;
+                padding-block: 3rem;
+                transform: translateX(100vw);
+                transition: transform 700ms;
+            }
+            .navbar-links li a{
+                color: whitesmoke;
+            }
+            .visible{
+                transform: translateX(0vw);
+            }
+            .li1{
+                transform: rotate(45deg) translateX(3px) translateY(5px);
+            }
+            .li2{
+                opacity: 0;
+            }
+            .li3{
+                transform: rotate(-45deg) translateY(-10px) translateX(10px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="logo">Nike</div>
+        <ul class="navbar-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Conatct Us</a></li>
+        </ul>
+    </nav>
+    <div class="burger">
+        <div class="line" id="line1"></div>
+        <div class="line" id="line2"></div>
+        <div class="line" id="line3"></div>
+    </div>
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-title border">
+                <p class="hero-title-p">
+                Nike Shoes</p></div>
+            <div class="hero-image border">
+                <img src="images/Nike_resized-removebg-preview.png" alt="">
+            </div>
+            <div class="hero-content border">
+                <h1>Lorem ipsum dolor sit.</h1>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Harum ducimus, inventore fugiat labore repellat adipisci laborum eveniet molestias explicabo sint?</p>
+                <button>Order Now</button>
+            </div>
+            <div class="hero-features border">
+                <div class="hero-box" id="box1"></div>
+                <div class="hero-box" id="box2"></div>
+                <div class="hero-box" id="box3"></div>
+            </div>
+
+        </div>
+    </section>
+    <section class="loading">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"
+        integrity="sha512-cOH8ndwGgPo+K7pTvMrqYbmI8u8k6Sho3js0gOqVWTmQMlLIi6TbqGWRTpf1ga8ci9H3iPsvDLr4X7xwhC/+DQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"
+        integrity="sha512-AMl4wfwAmDM1lsQvVBBRHYENn1FR8cfOTpt8QVbb/P55mYOdahHD4LmHM1W55pNe3j/3od8ELzPf/8eNkkjISQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollToPlugin.min.js"
+        integrity="sha512-WFeBxQtM/n6U8/Nd0Hz/Hq7n75NImbzM7Kc0y/4kE0kHnH1Be+nzm32RwbGoDsW1D9fjjPvI8LIWxLrZhxew/w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+
+        let nav=document.querySelector('.navbar-links')
+        let burger=document.querySelector('.burger')
+        let line1=document.getElementById('line1')
+        let line2=document.getElementById('line2')
+        let line3=document.getElementById('line3')
+        burger.addEventListener('click',()=>{
+            line1.classList.toggle('li1')
+            line2.classList.toggle('li2')
+            line3.classList.toggle('li3')
+            nav.classList.toggle('visible')
+        })
+        // let t1=gsap.timeline()
+        // t1
+        
+        //     .to('.box',{y:'-100%',stagger:{from:'center',amount:0.3},duration:0.5,delay:1})
+        //     .to('.loading',{display:'none'})
+    </script>
+</body>
+</html>
